@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="header">
+        <!-- Add your institution's labels and logos here -->
+        <img src="logo.jpg" alt="Institution Logo">
+        <h1>Guru Nanak Dev Engineering College,Ludhiana</h1>
+    </div>
+    <div class="event-info-container">
+        <div class="event-info">
+            <!-- Add information about the event here -->
+            <h2>Event Information</h2>
+            <p>Date: September 30, 2023</p>
+            <p>Location:DSA Basics & Implementation</p>
+            <p style="text-align: justify;">Description:Dr. Ramaswamy, a distinguished expert in the field of Data Structures and Algorithms, is a renowned scholar hailing from IIT Dholakpur. Born on January 1, 1970, he embarked on his educational journey with exceptional zeal. Dr. Ramaswamy completed his early schooling at a prominent institution in his hometown, displaying exceptional aptitude in mathematics and computer science from a very young age. His passion for the subject led him to pursue a Bachelor's degree in Computer Science from a prestigious university. He later continued his academic journey, attaining a Master's degree with flying colors. Driven by an insatiable thirst for knowledge, he went on to earn his Ph.D. in Computer Science from one of the top institutions globally, solidifying his position as a leading authority in his field. Prior to joining the esteemed faculty of IIT Dholakpur, Dr. Ramaswamy held various positions in both academia and industry, contributing significantly to the advancement of computer science and data structures. His rich and diverse background continues to inspire and guide countless students and professionals in their pursuit of excellence in the realm of Data Structures and Algorithms. 
+            </p>
+        </div>
+        <div class="guest-info">
+            <!-- Professor's picture and name -->
+            <div class="professor-info">
+                <h2>Guest Information</h2>
+                <img src="professor.png" alt="Dr. Ramaswamy">
+                <h2>Dr. Ramaswamy</h2>
+                <p><strong>Company:</strong> ABC Corporation</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="events">
+            <!-- Upcoming Events -->
+            <h2>Upcoming Events</h2>
+            <ul id="event-list">
+                <!-- Events will be added here dynamically using JavaScript -->
+                <li><a href="page1.html" alt="Workshop of Advanced Canva">Workshop of Advanced Canva</a></li>
+                <li><a href="page2.html" alt="Road Safety by ASI Anil Kumar">Road Safety by ASI Anil Kumar</a></li>
+            </ul>
+            
+        </div>
+        <div class="registration-form">
+            <h1>Registration Form</h1>
+            <form id="registration-form" method="post" name="google-sheet">
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" required>
+            
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class" required>
+            
+                <label for="class-roll-number">Class Roll Number:</label>
+                <input type="text" id="class-roll-number" name="class-roll-number" required>
+            
+                <label for="university-roll-number">University Roll Number:</label>
+                <input type="text" id="university-roll-number" name="university-roll-number" required>
+
+                <label for="whatsapp">WhatsApp Phone Number:</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="e.g., +1234567890">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="year">Year:</label>
+                <label><input type="radio" name="year" value="1st"> 1st</label>
+                <label><input type="radio" name="year" value="2nd"> 2nd</label>
+                <label><input type="radio" name="year" value="3rd"> 3rd</label>
+                <label><input type="radio" name="year" value="4th"> 4th</label>
+            
+                <label for="branch">Branch:</label>
+                <select id="branch" name="branch">
+                    <option value="cse">Computer Science and Engineering (CSE)</option>
+                    <option value="mech">Mechanical Engineering (Mech)</option>
+                    <option value="civil">Civil Engineering (Civil)</option>
+                    <option value="electrical">Electrical Engineering (Electrical)</option>
+                    <option value="it">Information Technology (IT)</option>
+                </select>
+            
+                <p id="error-message" class="error-message"></p>
+            
+                <button type="button" id="register-button">Register</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="chatbot-container">
+        <link rel="stylesheet" href="styleschatbot.css">
+        <div class="chatbot-icon">Chat <span class="icon">&#128172;</span></div>
+        <div class="chat-container">
+            <div class="message-area" id="message-area"></div>
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-button">Send</button>
+                <button id="clear-button">Clear</button>
+            </div>
+            <div class="admin-actions">
+<button id="admin-login-button">Admin Login</button>
+<input type="text" id="admin-input" placeholder="Admin Response">
+</div
+    </div>
+</div>
+    <div class="footer">
+        <!-- Add footer content here -->
+        <p>&copy; 2023 Guru Nanak Dev Engineering College,Ludhiana</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyepBOYxgHbgwhPDTufOe4Gglvn0eVSZRqGt06w4pdIoCs1lcM-NzxTp2SOrxguD1j-/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
